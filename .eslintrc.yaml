@@ -49,6 +49,13 @@ rules:
     - error
     - fn: it
   '@typescript-eslint/await-thenable': error
+  '@typescript-eslint/no-misused-promises':
+    - error
+    - checksVoidReturn: false
+  '@typescript-eslint/no-unused-vars':
+    - error
+    - argsIgnorePattern: ^_
+      varsIgnorePattern: ^_
   simple-import-sort/imports: error
   simple-import-sort/exports: error
 settings:
@@ -58,3 +65,11 @@ settings:
     fragment: Fragment
     version: detect
     flowVersion: 0.53
+  import/resolver:
+    typescript: []
+overrides:
+  - files: 
+      - src/*
+    rules:
+      import/no-default-export: off
+      import/prefer-default-export: error

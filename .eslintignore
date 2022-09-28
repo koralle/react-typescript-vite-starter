@@ -12,8 +12,13 @@
 !.storybook/**/*.js
 
 # Vite Config
-!vite.config.tsx
+!vite.config.ts
 
 # Jest Config
 !jest.config.ts
 
+# Test
+!__tests__
+!__tests__/*
+!__tests__/**/*.ts
+!__tests__/**/*.tsx
