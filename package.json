@@ -1,0 +1,127 @@
+{
+  "name": "react-typescript-vite-starter",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install",
+    "preinstall": "npx only-allow npm",
+    "lint-staged": "lint-staged",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
+    "deploy-storybook": "NODE_OPTIONS=--openssl-legacy-provider gh-pages -d storybook-static",
+    "type-check": "tsc --noEmit",
+    "check": "run-p --aggregate-output -l type-check lint fmt:check",
+    "fix": "run-s  fmt:fix lint:fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "fmt": "prettier .",
+    "fmt:check": "prettier -c .",
+    "fmt:fix": "prettier -w .",
+    "depcheck": "depcheck"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-interactions": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-vite": "^0.1.37",
+    "@storybook/react": "^6.5.15",
+    "@storybook/testing-library": "^0.0.13",
+    "@tauri-apps/cli": "^1.2.2",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
+    "@vitejs/plugin-react": "^3.0.0",
+    "babel-loader": "^9.1.0",
+    "eslint": "^8.30.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.1.7",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "eslint-plugin-storybook": "^0.6.8",
+    "gh-pages": "^4.0.0",
+    "husky": "^8.0.2",
+    "jest": "^29.3.1",
+    "lint-staged": "^13.1.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.1",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3",
+    "vite-tsconfig-paths": "^4.0.3"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "jest": {
+    "verbose": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier -w",
+      "tsc --noEmit",
+      "eslint --fix"
+    ],
+    "src/**/*.{js,jsx}": [
+      "prettier -w",
+      "eslint --fix"
+    ],
+    "vite.config.ts": [
+      "prettier -w",
+      "tsc --noEmit",
+      "eslint --fix"
+    ],
+    "jest.config.ts": [
+      "prettier -w",
+      "tsc --noEmit",
+      "eslint --fix"
+    ],
+    ".storybook/**/*.js": [
+      "prettier -w",
+      "eslint --fix"
+    ],
+    "index.html": [
+      "prettier -w"
+    ],
+    ".eslintrc.yaml": [
+      "prettier -w"
+    ],
+    ".prettierrc.yaml": [
+      "prettier -w"
+    ],
+    "tsconfig.json": [
+      "prettier -w"
+    ],
+    "tsconfig.node.json": [
+      "prettier -w"
+    ],
+    "package.json": [
+      "prettier -w"
+    ],
+    "package-lock.json": [
+      "prettier -w"
+    ]
+  }
+}
